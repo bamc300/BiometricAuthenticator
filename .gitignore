@@ -50,22 +50,6 @@ yarn-error.log*
 coverage/
 
 ##############################################
-# Replit
-##############################################
-.replit
-*.replit
-.replitdb
-.replit.db
-.repl_history
-.repl_config.json
-.replit.nix
-.replit.nix.lock
-.nix-profile/
-.nix-defexpr/
-.result-cache/
-.idea/
-
-##############################################
 # IDEs y editores comunes
 ##############################################
 .vscode/
