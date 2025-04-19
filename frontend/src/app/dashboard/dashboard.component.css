@@ -1,0 +1,101 @@
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  font-weight: 500;
+}
+
+.account-info-item,
+.security-item {
+  margin-bottom: 0.5rem;
+}
+
+.account-info-item label,
+.security-item label {
+  font-size: 0.875rem;
+  color: var(--dark-gray);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.account-info-item .value,
+.security-item .value {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.security-item .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-color);
+}
+
+.account-status {
+  padding: 1rem 0;
+}
+
+.status-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.status-icon.active {
+  color: var(--success-color);
+}
+
+.feather-small {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.feature-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+}
+
+.alert i {
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .account-status {
+    padding: 0.5rem 0;
+  }
+  
+  .status-icon {
+    width: 48px;
+    height: 48px;
+  }
+}

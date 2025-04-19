@@ -1,0 +1,112 @@
+.card {
+  margin-top: 2rem;
+  border: none;
+  border-radius: 10px;
+}
+
+.card-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: 500;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert i {
+  margin-right: 8px;
+}
+
+.biometric-options {
+  padding: 20px 0;
+}
+
+.biometric-selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.form-check-inline {
+  margin-right: 0;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.form-check-inline:hover {
+  background-color: #f8f9fa;
+}
+
+.form-check-input:checked + .form-check-label {
+  font-weight: bold;
+}
+
+.form-check-input:checked ~ .form-check-label .bio-icon {
+  color: var(--primary-color);
+}
+
+.bio-icon {
+  display: block;
+  margin: 0 auto 8px;
+  width: 32px;
+  height: 32px;
+}
+
+.bio-icon-large {
+  width: 80px;
+  height: 80px;
+  color: var(--primary-color);
+}
+
+.large-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.bio-icon-container {
+  padding: 20px 0;
+}
+
+.verify-prompt, .enroll-prompt {
+  padding: 10px 0;
+}
+
+.biometric-actions {
+  margin-top: 20px;
+}
+
+.btn-lg {
+  padding: 12px 24px;
+}
+
+.spinner-border {
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 576px) {
+  .card {
+    margin-top: 1rem;
+  }
+  
+  .bio-icon-large {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .btn-lg {
+    width: 100%;
+    margin-bottom: 10px !important;
+  }
+  
+  .ms-2 {
+    margin-left: 0 !important;
+  }
+}

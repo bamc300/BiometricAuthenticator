@@ -1,0 +1,81 @@
+##############################################
+# Java / Spring Boot
+##############################################
+*.class
+*.jar
+*.war
+*.ear
+
+target/
+build/
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+!gradle-wrapper.jar
+
+# Logs y temporales
+*.log
+*.tmp
+*.bak
+
+# Archivos de configuración sensibles
+application.properties
+application.yml
+application-*.yml
+application-*.properties
+.env
+
+##############################################
+# Angular / Node.js
+##############################################
+node_modules/
+dist/
+out-tsc/
+.angular/
+.angular/cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de test y cobertura
+coverage/
+
+##############################################
+# Replit
+##############################################
+.replit
+*.replit
+.replitdb
+.replit.db
+.repl_history
+.repl_config.json
+.replit.nix
+.replit.nix.lock
+.nix-profile/
+.nix-defexpr/
+.result-cache/
+.idea/
+
+##############################################
+# IDEs y editores comunes
+##############################################
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+##############################################
+# Archivos del sistema operativo
+##############################################
+.DS_Store
+Thumbs.db

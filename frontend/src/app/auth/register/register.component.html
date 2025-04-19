@@ -1,0 +1,148 @@
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-lg">
+      <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Register</h4>
+      </div>
+      <div class="card-body">
+        <div *ngIf="isOffline" class="alert alert-warning" role="alert">
+          <i data-feather="wifi-off"></i> You are offline. Registration is not available.
+        </div>
+        
+        <div *ngIf="error" class="alert alert-danger">
+          {{ error }}
+        </div>
+        
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                formControlName="firstName"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid }"
+              />
+              <div *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid" class="invalid-feedback">
+                <div *ngIf="registerForm.get('firstName')?.errors?.['required']">First name is required</div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                formControlName="lastName"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid }"
+              />
+              <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid" class="invalid-feedback">
+                <div *ngIf="registerForm.get('lastName')?.errors?.['required']">Last name is required</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              id="username"
+              formControlName="username"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': registerForm.get('username')?.touched && registerForm.get('username')?.invalid }"
+              autocomplete="username"
+            />
+            <div *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid" class="invalid-feedback">
+              <div *ngIf="registerForm.get('username')?.errors?.['required']">Username is required</div>
+              <div *ngIf="registerForm.get('username')?.errors?.['minlength']">Username must be at least 4 characters</div>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': registerForm.get('email')?.touched && registerForm.get('email')?.invalid }"
+              autocomplete="email"
+            />
+            <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid" class="invalid-feedback">
+              <div *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</div>
+              <div *ngIf="registerForm.get('email')?.errors?.['email']">Please enter a valid email address</div>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              id="password"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': registerForm.get('password')?.touched && registerForm.get('password')?.invalid }"
+              autocomplete="new-password"
+            />
+            <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="invalid-feedback">
+              <div *ngIf="registerForm.get('password')?.errors?.['required']">Password is required</div>
+              <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</div>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': registerForm.get('confirmPassword')?.touched && (registerForm.get('confirmPassword')?.invalid || registerForm.hasError('passwordMismatch')) }"
+              autocomplete="new-password"
+            />
+            <div *ngIf="registerForm.get('confirmPassword')?.touched && (registerForm.get('confirmPassword')?.invalid || registerForm.hasError('passwordMismatch'))" class="invalid-feedback">
+              <div *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Confirm password is required</div>
+              <div *ngIf="registerForm.hasError('passwordMismatch')">Passwords do not match</div>
+            </div>
+          </div>
+          
+          <div class="mb-3 form-check" *ngIf="biometricSupported">
+            <input
+              type="checkbox"
+              id="biometricEnabled"
+              formControlName="biometricEnabled"
+              class="form-check-input"
+            />
+            <label for="biometricEnabled" class="form-check-label">
+              Enable biometric authentication (fingerprint, face recognition, or device PIN/pattern)
+            </label>
+          </div>
+          
+          <div class="mb-3" *ngIf="!biometricSupported">
+            <div class="alert alert-info">
+              <i>ℹ️</i> Su dispositivo no soporta autenticación biométrica nativa. Utilizará solo su contraseña para autenticarse.
+              <br>
+              <small class="d-block mt-1">Nota: En dispositivos móviles, es posible que necesite permitir el acceso al sensor biométrico cuando se le solicite.</small>
+            </div>
+          </div>
+          
+          <div class="d-grid gap-2">
+            <button 
+              type="submit" 
+              class="btn btn-primary" 
+              [disabled]="registerForm.invalid || loading || isOffline">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Register
+            </button>
+          </div>
+        </form>
+        
+        <div class="mt-3 text-center">
+          <p>Already have an account? <a routerLink="/login">Login here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

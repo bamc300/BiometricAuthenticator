@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+
+# Archivos temporales de Angular
+.angular/
+.angular/cache/
+
+# Build outputs
+dist/
+out-tsc/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ambientes y configuraciones personales
+.env
+*.local
+
+# npm / yarn lockfiles si no usas ambos
+package-lock.json
+# yarn.lock
+
+# Cobertura de tests
+coverage/
